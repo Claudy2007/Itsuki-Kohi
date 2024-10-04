@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tienda de Frutas y Verduras</title>
+    <style>
+    body{
+        background-color: #d2a8e2;
+    }
+          * {
+    padding: 0;
+    margin: 0;
+    text-decoration: none; /* Elimina el subrayado en los enlaces */
+    list-style: none; /* Elimina los puntos en las listas */
+    box-sizing: border-box; /*los elementos no se salgan de contenedor*/
+  }
+  
+  /* Estilos para la barra de navegación */
+  nav {
+    background: #9c78ac;
+    height: 15vh;
+    /* Ajustamos el padding para dar más espacio a los elementos en pantallas pequeñas */
+    padding: 0 20px;
+    /* Utilizamos flexbox para centrar los elementos horizontalmente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom:15px;
+  }
+  
+  /* Estilos para los enlaces en la barra de navegación */
+  .enlace {
+    /* Elimina el padding fijo y ajusta el ta de la letra y el padding para adaptarse a una barra de navegación flexible */
+    padding: 10px 20px;
+  }
+  .logo {
+    height: 50px;
+  }
+  
+  /* Estilos para cada elemento de la lista en la barra de navegación */
+  nav ul {
+    /* Elimina el float y ajusta el margin para centrar los elementos horizontalmente */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  nav ul li {
+    display: inline-block;
+    line-height: 70px; /*centrar*/
+    margin: 0 5vh;
+  }
+  
+  /* Estilos para los enlaces de los elementos de la barra de navegación */
+  nav ul li a {
+    color: #ffff;
+    font-size: 16px;
+    /* Ajusta el padding para adaptarse a una barra de navegación flexible */
+    padding: 7px 20px;
+    border-radius: 3px;
+    text-transform: uppercase; /* Convertir el texto en mayúsculas */
+  }
+  
+  /* Estilos para el enlace activo o enlace con el cursor sobre él */
+  li a.active,
+  li a:hover {
+    background: #81638d;
+    transition: 0.5s; /* Animación de transición al cambiar el fondo */
+  }
+  /* Estilos para el botón de menú*/
+  .checkbtn {
+    font-size: 30px;
+    color: #fff;
+    float: right;
+    line-height: 80px; /*centrar*/
+    margin-right: 40px;
+    cursor: pointer;
+    display: none; /* Ocultar el botón en pantallas grandes */
+  }
+  #check {
+    display: none;
+  }
+        /* Contenedor principal */
+        .container {
+            display: grid;
+            grid-template-columns: 3fr 1fr; /* 3/4 para productos y 1/4 para el carrito */
+            gap: 20px;
+        }
+
+        /* Estilos de la cuadrícula de productos */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* 4 columnas */
+            gap: 10px; /* Espacio entre los elementos */
+        }
+
+        .grid-item {    
+            border: 2px solid #8c00ff; /* Cambiado a azul */
+            padding: 20px;
+            text-align: center;
+            margin-left:25px;
+        }
+
+        aside {
+            border: 2px solid #9900ff; /* Cambiado a azul */
+            padding: 20px;
+        }
+
+
+        .grid-item img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .btn {
+            background-color: #dcb6ff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #d388ff;
+        }
+
+        /* Estilos del carrito */
+        aside {
+            border: 2px solid #a369ff;
+            padding: 20px;
+        }
+
+        aside img {
+            width: 50px;
+            height: 50px;
+            vertical-align: middle;
+        }
+        p{
+            margin:5px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .list-group-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+        }
+        .footer {
+            background-color: #9c78ac;
+            padding: 30px 0;
+            margin-top:15px;
+        }
+        .botons:hover {
+            background-color: #81638d;
+        }
+        .container {
+            max-width: 1170px;
+            margin: auto;
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .footer-col {
+            width: 25%;
+            padding: 0 15px;
+        }
+        .footer-col h4 {
+            font-size: 18px;
+            color: #ffffff;
+            text-transform: capitalize;
+            margin-bottom: 35px;
+            font-weight: 500;
+            position: relative;
+        }
+        .footer-col h4::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            height: 2px;
+            box-sizing: border-box;
+            width: 50px;
+        }
+        .footer-col ul li:not(:last-child) {
+            margin-bottom: 10px;
+        }
+        .footer-col ul li a {
+            font-size: 16px;
+            text-transform: capitalize;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 300;
+            color: #ffffff;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        .footer-col ul li a:hover {
+            color: #ffffff;
+            padding-left: 8px;
+        }
+        .footer-col .social-links a {
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+            background-color: rgba(255, 255, 255, 0.2);
+            margin: 0 10px 10px 0;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            color: #ffffff;
+            transition: all 0.5s ease;
+        }
+        .footer-col .social-links a:hover {
+            color: #24262b;
+            background-color: #ffffff;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <input type="checkbox" id="check" />
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <a href="Inicio.html" class="enlace">
+            <img src="logo.png" alt="" class="logo" />
+        </a>
+        <ul>
+        <li><a href="Inicio.html">Inicio</a></li>
+        <li><a href="bebidas.html">Menú</a></li>
+        <li><a href="contactanos.html">Contactanos</a></li>
+        <li><a class="active" href="index.php">Iniciar Sesión</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <!-- Productos -->
+        <main class="grid-container" id="items">
+            <!-- Aquí se renderizan los productos con JavaScript -->
+        </main>
+
+        <!-- Carrito de compras -->
+        <aside>
+            <h2>
+                <img src="img/carrito.png" alt="Carrito"> Tu pedido
+            </h2>
+            <ul id="carrito" class="list-group">
+                <!-- Aquí se renderizan los elementos del carrito -->
+            </ul>
+            <hr>
+            <p>Subtotal (sin IVA): <span id="total-sin-iva">0</span> COP$</p>
+            <p>Total (con IVA 19%): <span id="total-con-iva">0</span> COP$</p>
+            <p class="font-weight-bold">Total a pagar: <span id="total-a-pagar">0</span> COP$</p>
+            <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+        </aside>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const baseDeDatos = [
+                { id: 1, nombre: 'Churros', precio: 2000, imagen: 'img/zchurros.png' }, // Cambiar ruta a 'img/'
+                { id: 2, nombre: 'Sandwich', precio: 6000, imagen: 'img/zsandwich.png' },
+                { id: 3, nombre: 'Croissant', precio: 3000, imagen: 'img/zcroissant.png' },
+                { id: 4, nombre: 'Pancakes', precio: 9500, imagen: 'img/zpancakes.png' },
+                { id: 5, nombre: 'Crepas', precio: 7800, imagen: 'img/zcrepas.png' },
+                { id: 6, nombre: 'Donas', precio: 4700, imagen: 'img/zdonas.png' },
+                { id: 7, nombre: 'Cafe Caliente', precio: 2000, imagen: 'img/zcafecaliente.png' },
+                { id: 8, nombre: 'Cafe Frio', precio: 2000, imagen: 'img/zcafefrio.png' },
+                { id: 9, nombre: 'Chocolate', precio: 3000, imagen: 'img/zchocolate.png' },
+                { id: 10, nombre: 'Frappuchino', precio: 6800, imagen: 'img/zfrappuchino.png' },
+                { id: 11, nombre: 'Jugos Naturales', precio: 5200, imagen: 'img/zjugosnaturales.png' },
+                { id: 12, nombre: 'Latte', precio: 4500, imagen: 'img/zlatte.png' },
+                { id: 13, nombre: 'Galleta de Chispas', precio: 4500, imagen: 'img/zgalletachispa.png' },
+                { id: 14, nombre: 'Galleta de Avena', precio: 4500, imagen: 'img/zgalletaavena.png' },
+                { id: 15, nombre: 'Macaron', precio: 4500, imagen: 'img/zmacaron.png' }
+            ];
+
+            let carrito = [];
+            const divisa = '$';
+            const tasaIVA = 0.19; // IVA del 19%
+            const DOMitems = document.querySelector('#items');
+            const DOMcarrito = document.querySelector('#carrito');
+            const DOMtotalSinIVA = document.querySelector('#total-sin-iva');
+            const DOMtotalConIVA = document.querySelector('#total-con-iva');
+            const DOMtotalAPagar = document.querySelector('#total-a-pagar');
+            const DOMbotonVaciar = document.querySelector('#boton-vaciar');
+
+            // Renderizar productos
+            function renderizarProductos() {
+                baseDeDatos.forEach((info) => {
+                    const miNodo = document.createElement('div');
+                    miNodo.classList.add('grid-item');
+                    const miNodoTitle = document.createElement('h5');
+                    miNodoTitle.textContent = info.nombre;
+                    const miNodoImagen = document.createElement('img');
+                    miNodoImagen.setAttribute('src', info.imagen);
+                    const miNodoPrecio = document.createElement('p');
+                    miNodoPrecio.textContent = `${info.precio} ${divisa}`;
+                    const miNodoBoton = document.createElement('button');
+                    miNodoBoton.classList.add('btn');
+                    miNodoBoton.textContent = 'Añadir al carrito';
+                    miNodoBoton.setAttribute('marcador', info.id);
+                    miNodoBoton.addEventListener('click', anyadirProductoAlCarrito);
+                    miNodo.appendChild(miNodoImagen);
+                    miNodo.appendChild(miNodoTitle);
+                    miNodo.appendChild(miNodoPrecio);
+                    miNodo.appendChild(miNodoBoton);
+                    DOMitems.appendChild(miNodo);
+                });
+            }
+
+            // Añadir producto al carrito
+            function anyadirProductoAlCarrito(evento) {
+                carrito.push(evento.target.getAttribute('marcador'));
+                renderizarCarrito();
+            }
+
+            // Renderizar carrito
+            function renderizarCarrito() {
+                DOMcarrito.textContent = '';
+                const carritoSinDuplicados = [...new Set(carrito)];
+                carritoSinDuplicados.forEach((item) => {
+                    const miItem = baseDeDatos.filter((itemBaseDatos) => {
+                        return itemBaseDatos.id === parseInt(item);
+                    });
+                    const numeroUnidadesItem = carrito.reduce((total, itemId) => {
+                        return itemId === item ? total += 1 : total;
+                    }, 0);
+                    const miNodo = document.createElement('li');
+                    miNodo.classList.add('list-group-item');
+                    miNodo.textContent = `${numeroUnidadesItem} x ${miItem[0].nombre} - ${miItem[0].precio} ${divisa}`;
+                    const miBoton = document.createElement('button');
+                    miBoton.classList.add('btn', 'btn-danger');
+                    miBoton.textContent = 'X';
+                    miBoton.dataset.item = item;
+                    miBoton.addEventListener('click', borrarItemCarrito);
+                    miNodo.appendChild(miBoton);
+                    DOMcarrito.appendChild(miNodo);
+                });
+                const subtotal = calcularSubtotal();
+                const totalConIVA = subtotal * (1 + tasaIVA);
+                DOMtotalSinIVA.textContent = subtotal.toFixed(2); // Subtotal con dos decimales
+                DOMtotalConIVA.textContent = totalConIVA.toFixed(2); // Total con IVA y dos decimales
+                DOMtotalAPagar.textContent = Math.round(totalConIVA); // Total a pagar sin decimales
+            }
+
+            // Borrar producto del carrito
+            function borrarItemCarrito(evento) {
+                const id = evento.target.dataset.item;
+                carrito = carrito.filter((carritoId) => {
+                    return carritoId !== id;
+                });
+                renderizarCarrito();
+            }
+
+            // Calcular subtotal
+            function calcularSubtotal() {
+                return carrito.reduce((total, item) => {
+                    const miItem = baseDeDatos.filter((itemBaseDatos) => {
+                        return itemBaseDatos.id === parseInt(item);
+                    });
+                    return total + miItem[0].precio;
+                }, 0);
+            }
+
+            // Vaciar carrito
+            function vaciarCarrito() {
+                carrito = [];
+                renderizarCarrito();
+            }
+
+            DOMbotonVaciar.addEventListener('click', vaciarCarrito);
+
+            renderizarProductos();
+            renderizarCarrito();
+        });
+    </script>
+         <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col">
+                        <h4>Sobre Nosotros</h4>
+                        <ul>
+                            <li><a href="#">Nuestro Equipo</a></li>
+                            <li><a href="#">Historia</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Contacto</h4>
+                        <ul>
+                            <li><a href="#">Soporte</a></li>
+                            <li><a href="#">Preguntas Frecuentes</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Síguenos</h4>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+</body>
+</html>

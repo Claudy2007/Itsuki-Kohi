@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style/comestibles.css" />
+    <link rel="icon" type="image/x-icon" href="itsuki.ico" />
+    <title>Comestibles</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav>
+      <input type="checkbox" id="check" />
+      <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <a href="Inicio.html" class="enlace">
+        <img src="logo.png" alt="" class="logo" />
+      </a>
+      <ul>
+        <li><a href="Inicio.html">Inicio</a></li>
+        <li><a href="bebidas.html">Menú</a></li>
+        <li><a href="contactanos.html">Contactanos</a></li>
+        <li><a href="index.html">Iniciar Sesión</a></li>
+        <li><a href="bebidas.html" class="active">Anterior</a></li>
+      </ul>
+    </nav>
+    <div class="container-items">
+      <div class="item">
+        <figure>
+          <img src="img/zchurros.png" width="50%" height="50%" alt="producto" />
+        </figure>
+        <div class="info-product">
+          <h2>Mini Churros</h2>
+          <p class="price">$6000</p>
+          <button class="btn-add-cart">Añadir al carrito</button>
+        </div>
+      </div>
+      <div class="item">
+        <figure>
+          <img src="img/zdonas.png" alt="producto" />
+        </figure>
+        <div class="info-product">
+          <h2>Donas</h2>
+          <p class="price">$6500</p>
+          <button class="btn-add-cart">Añadir al carrito</button>
+        </div>
+      </div>
+      <div class="item">
+        <figure>
+          <img src="img/zcrepas.png" alt="producto" />
+        </figure>
+        <div class="info-product">
+          <h2>Crepes</h2>
+          <p class="price">$7000</p>
+          <button class="btn-add-cart">Añadir al carrito</button>
+        </div>
+      </div>
+      <div class="item">
+        <figure>
+          <img src="img/zpancakes.png" alt="producto" />
+        </figure>
+        <div class="info-product">
+          <h2>Pancakes</h2>
+          <p class="price">$12000</p>
+          <button class="btn-add-cart">Añadir al carrito</button>
+        </div>
+      </div>
+      <div class="item">
+        <figure>
+          <img src="img/zcroissant.png" alt="producto" />
+        </figure>
+        <div class="info-product">
+          <h2>Croissant</h2>
+          <p class="price">$5000</p>
+          <button class="btn-add-cart">Añadir al carrito</button>
+        </div>
+      </div>
+      <div class="item">
+        <figure>
+          <img src="img/zsandwich.png" alt="producto" />
+        </figure>
+        <div class="info-product">
+          <h2>Sandwich</h2>
+          <p class="price">$3500</p>
+          <button class="btn-add-cart">Añadir al carrito</button>
+        </div>
+      </div>
+      <div class="cart-details">
+        <h2>Productos seleccionados</h2>
+        <ul id="cart-items-list"></ul>
+        <div class="cart-total">
+          <p>Total:</p>
+          <span id="total-precio"></span>
+        </div>
+        <div class="cart-total">
+          <p>Total IVA:</p>
+          <span id="total-iva"></span>
+        </div>
+        <div>
+            <button id="vaciar-carrito">Vaciar Carrito</button>
+        </div>
+      </div>
+      
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="footer-col">
+            <h4>Itsuki-Kohi</h4>
+            <ul>
+              <li><a href="#">Quienes Somos</a></li>
+              <li><a href="#">Empleo</a></li>
+              <li><a href="#">Movil</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contactanos</h4>
+            <ul>
+              <li><a href="#">Ayuda/Preguntas frecuentes</a></li>
+              <li><a href="#">Prensa</a></li>
+              <li><a href="#">Socios</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Más</h4>
+            <ul>
+              <li><a href="#">Menu Latee</a></li>
+              <li><a href="#">Menu Comida</a></li>
+              <li><a href="#">Menu Postres</a></li>
+              <li><a href="#">Combos</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Informacion</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="./JS/comestibles.js"></script>
+  </body>
+</html>
